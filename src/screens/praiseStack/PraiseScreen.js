@@ -65,7 +65,6 @@ export default class PraiseScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerLeft: <HomeButton />,
     headerRight: <InfoButton />,
   };
 

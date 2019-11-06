@@ -45,25 +45,7 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-const MainNavigator = createStackNavigator(
-  {
-    Tab: TabNavigator,
-    // Profile: ProfileStack,
-    // AddressForm: AddressFormStack,
-  },
-  {
-    mode: 'modal',
-    defaultNavigationOptions: {
-      header: null,
-    },
-  }
-);
-
-const AppNavigator = createSwitchNavigator({
-  Main: MainNavigator,
-});
-
-const AppContainer = createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(TabNavigator);
 
 export default class Navigation extends Component {
   render() {

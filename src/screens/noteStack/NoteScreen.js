@@ -6,7 +6,6 @@ import { theme } from '../../constants/theme';
 import CategoryCard from '../../components/CategoryCard';
 
 import LogoTitle from '../../commons/LogoTitle';
-import HomeButton from '../../commons/button/HomeButton';
 import InfoButton from '../../commons/button/InfoButton';
 
 const categories = [
@@ -68,7 +67,6 @@ export default class NoteScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerLeft: <HomeButton />,
     headerRight: <InfoButton />,
   };
 

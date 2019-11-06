@@ -4,6 +4,7 @@ import { Box, Text } from 'react-native-design-utility';
 
 import Caroussel from '../../components/Caroussel';
 import LogoTitle from '../../commons/LogoTitle';
+import InfoButton from '../../commons/button/InfoButton';
 
 import { theme } from '../../constants/theme';
 
@@ -12,9 +13,9 @@ export default class HomeScreen extends Component {
     headerTitle: () => <LogoTitle />,
     headerStyle: {
       backgroundColor: '#fff',
-      height: 100,
+      height: 110,
     },
-    // headerRight: <ShoppingCartIcon />,
+    headerRight: <InfoButton />,
   };
 
   render() {

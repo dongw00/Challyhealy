@@ -4,15 +4,18 @@ import HeaderButton from './HeaderButton';
 import { NavigationService } from '../../api/NavigationService';
 
 export default class CancleButton extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
   onNavigation = () => {
-    NavigationService.navigate('Note');
+    NavigationService.navigate(this.props.path);
   };
 
   render() {
     return (
-      <HeaderButton left onPress={this.onNavigation}>
+      <HeaderButton right onPress={this.onNavigation}>
         <Image
-          style={{ width: 20, height: 20 }}
+          style={{ width: 16, height: 16 }}
           source={require('../../../assets/img/note/exit.png')}
         />
       </HeaderButton>

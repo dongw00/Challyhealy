@@ -5,14 +5,14 @@ import { NavigationService } from '../../api/NavigationService';
 
 export default class InfoButton extends PureComponent {
   onNavigate = () => {
-    NavigationService.navigate('Home');
+    NavigationService.navigate('Profile');
   };
 
   render() {
     return (
       <HeaderButton right onPress={this.onNavigate}>
         <Image
-          style={{ width: 21, height: 25 }}
+          style={{ resizeMode: 'contain', height: 24 }}
           source={require('../../../assets/img/header/info.png')}
         />
       </HeaderButton>

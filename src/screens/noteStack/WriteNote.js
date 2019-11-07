@@ -10,7 +10,7 @@ export default class WriteNote extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerLeft: <CancleButton />,
+    headerLeft: <CancleButton path={'Note'} />,
   };
 
   render() {

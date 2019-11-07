@@ -14,12 +14,33 @@ import NoteScreen from './noteStack/NoteScreen';
 import PraiseScreen from './praiseStack/PraiseScreen';
 import DiseaseScreen from './diseaseStack/DiseaseScreen';
 import WriteNote from './noteStack/WriteNote';
+import ProfileScreen from './homeStack/ProfileScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-  //Category: CategoryScreen,
-  //ShoppingCart: ShoppingCartScreen,
+const ProfileSwitch = createSwitchNavigator({
+  Profile: ProfileScreen,
 });
+
+const HomeStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Profile: ProfileScreen,
+  },
+  {
+    mode: 'modal',
+  }
+);
+
+HomeStack.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+
+  let routeName = navigation.state.routes[navigation.state.index].routeName;
+
+  tabBarVisible = routeName == 'Profile' ? false : true;
+
+  return {
+    tabBarVisible,
+  };
+};
 
 const NoteStack = createStackNavigator({
   Note: NoteScreen,

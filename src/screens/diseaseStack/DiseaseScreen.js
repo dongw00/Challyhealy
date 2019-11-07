@@ -14,7 +14,6 @@ export default class DiseaseScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerRight: <InfoButton />,
   };
 
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, FlatList, Image } from 'react-native';
+import { ScrollView, FlatList, Image } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
 import { theme } from '../../constants/theme';
@@ -67,7 +67,6 @@ export default class NoteScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerRight: <InfoButton />,
   };
 
   _renderItem = ({ item, idx }) => {

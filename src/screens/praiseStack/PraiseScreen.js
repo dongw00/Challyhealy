@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { FlatList, ScrollView, Image } from 'react-native';
+import {
+  FlatList,
+  ScrollView,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
 import LogoTitle from '../../commons/LogoTitle';
 import HomeButton from '../../commons/button/HomeButton';
 import InfoButton from '../../commons/button/InfoButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import PraiseCard from '../../components/PraiseCard';
 
 const images = [
   {
@@ -65,13 +72,12 @@ export default class PraiseScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerRight: <InfoButton />,
   };
 
   _renderItem = ({ item, idx }) => {
     return (
-      <Box w={1 / 3} h={120}>
-        <Image source={{ ...item.image }} />
+      <Box w={1 / 3} m={1}>
+        <PraiseCard {...item} />
       </Box>
     );
   };
@@ -80,23 +86,44 @@ export default class PraiseScreen extends Component {
 
   render() {
     return (
-      <Box>
-        <ScrollView>
-          <FlatList
-            data={images.image}
-            renderItem={this._renderItem}
-            keyExtractor={this._keyExtractor}
-            numColumns={3}
-          />
-
-          <Text
-            bold
-            size="sm"
-            style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
-            2019년 11월 13일(수)
-          </Text>
-        </ScrollView>
-      </Box>
+      <ScrollView style={{ margin: 1 }}>
+        <Text
+          bold
+          size="sm"
+          style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
+          2019년 11월 13일(수)
+        </Text>
+        <FlatList
+          data={images}
+          style={{ margin: 1 }}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          numColumns={3}
+        />
+        <Text
+          bold
+          size="sm"
+          style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
+          2019년 11월 12일(화)
+        </Text>
+        <FlatList
+          data={images}
+          style={{ margin: 1 }}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          numColumns={3}
+        />
+      </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  item: {
+    flex: 1,
+    margin: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: Dimensions.get('window').width / 3,
+  },
+});

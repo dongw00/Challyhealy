@@ -13,6 +13,7 @@ import HomeScreen from './homeStack/HomeScreen';
 import NoteScreen from './noteStack/NoteScreen';
 import PraiseScreen from './praiseStack/PraiseScreen';
 import DiseaseScreen from './diseaseStack/DiseaseScreen';
+import WriteNote from './noteStack/WriteNote';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -22,6 +23,7 @@ const HomeStack = createStackNavigator({
 
 const NoteStack = createStackNavigator({
   Note: NoteScreen,
+  WriteNote: WriteNote,
 });
 
 const DiseaseStack = createStackNavigator({

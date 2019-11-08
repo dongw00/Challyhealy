@@ -36,17 +36,27 @@ export default class CreditCard extends PureComponent {
             <Image
               style={{ height: 26, resizeMode: 'contain' }}
               source={
-                id !== 1 || id !== 9
-                  ? icons[1].img
-                  : id === 1
+                title !== '칠리힐리' && title !== '선물랭킹'
                   ? icons[0].img
+                  : title === '칠리힐리'
+                  ? icons[1].img
                   : icons[2].img
               }
             />
             <Box center>
-              <Text bold color="#303030" style={{ fontSize: 12, marginTop: 7 }}>
-                {title}
-              </Text>
+              {title == '칠리힐리' ? (
+                <Image
+                  style={{ marginTop: 10, width: 52, resizeMode: 'contain' }}
+                  source={require('../../assets/img/store/CHALYHEALY_list.png')}
+                />
+              ) : (
+                <Text
+                  bold
+                  color="#303030"
+                  style={{ fontSize: 12, marginTop: 7 }}>
+                  {title}
+                </Text>
+              )}
             </Box>
           </Box>
         </Box>

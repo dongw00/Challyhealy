@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Image, Dimensions } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import CreditCard from '../../components/CreditCard';
+import CancleButtonW from '../../commons/button/CancleButtonW';
 
 const { width: WIDTH } = Dimensions.get('window');
 import { theme } from '../../constants/theme';
@@ -11,7 +12,7 @@ import { theme } from '../../constants/theme';
 const categories = [
   {
     id: 1,
-    title: '챌리힐리',
+    title: '칠리힐리',
   },
   {
     id: 2,
@@ -50,8 +51,11 @@ const categories = [
 const NUM_COLUMNS = 3;
 
 export default class CreditStore extends Component {
-  static NavigationOptions = {
-    header: null,
+  static navigationOptions = {
+    headerTransparent: true,
+    headerStyle: { borderBottomWidth: 0, height: 65 },
+    headerLeft: null,
+    headerRight: <CancleButtonW path="Profile" />,
   };
 
   _renderItem = ({ item, idx }) => {
@@ -67,65 +71,57 @@ export default class CreditStore extends Component {
   render() {
     return (
       <Box f={1}>
-        <Box>
-          <Image
-            style={{ width: WIDTH, resizeMode: 'contain' }}
-            source={require('../../../assets/img/store/storead2.png')}
-          />
+        <Image
+          style={{ width: WIDTH, resizeMode: 'contain' }}
+          source={require('../../../assets/img/store/storead2.png')}
+        />
+        <Box center style={{ marginBottom: 20 }}>
+          <Text bold style={{ fontSize: 17 }}>
+            크래딧을 사용해 고마움을 표현해보세요.
+          </Text>
         </Box>
-        <Box>
-          <Box center>
-            <Text bold style={{ fontSize: 12 }}>
-              크래딧을 사용해 고마움을 표현해보세요.
-            </Text>
-          </Box>
-          <Box
-            center
+        <Box center style={{ marginBottom: 10 }}>
+          <Image
             style={{
-              marginTop: 8,
+              width: WIDTH - 23,
+              height: 31,
+            }}
+            source={require('../../../assets/img/profile/rect1.png')}
+          />
+          <Box
+            f={1}
+            style={{
+              marginTop: 18,
+              width: WIDTH - 55,
+              height: 32,
+              position: 'absolute',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexDirection: 'row',
             }}>
-            <Image
-              style={{
-                width: WIDTH - 23,
-                height: 31,
-              }}
-              source={require('../../../assets/img/profile/rect1.png')}
-            />
-            <Box
-              f={1}
-              style={{
-                marginTop: 18,
-                width: WIDTH - 55,
-                height: 32,
-                position: 'absolute',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexDirection: 'row',
-              }}>
-              <Box f={1} style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: 12 }} bold color="white">
-                  내 크래딧{' '}
-                </Text>
-                <Text bold color="white">
-                  10,890
-                </Text>
-              </Box>
-              <Box f={1} style={{ alignItems: 'flex-end', marginRight: 5 }}>
-                <Text bold color="white" style={{ fontSize: 12 }}>
-                  사용내역 | 충전내역
-                </Text>
-              </Box>
+            <Box f={1} style={{ flexDirection: 'row' }}>
+              <Text style={{ fontSize: 12 }} bold color="white">
+                내 크래딧{' '}
+              </Text>
+              <Text bold color="white">
+                10,890
+              </Text>
+            </Box>
+            <Box f={1} style={{ alignItems: 'flex-end', marginRight: 5 }}>
+              <Text bold color="white" style={{ fontSize: 12 }}>
+                사용내역 | 충전내역
+              </Text>
             </Box>
           </Box>
-          <Box center style={{ marginTop: 5, marginLeft: 5, marginRight: 5 }}>
-            <FlatList
-              style={{ marginLeft: 15, marginRight: 15, marginTop: 5 }}
-              data={categories}
-              renderItem={this._renderItem}
-              keyExtractor={this._keyExtractor}
-              numColumns={3}
-            />
-          </Box>
+        </Box>
+        <Box center style={{ marginTop: 5, marginLeft: 5, marginRight: 5 }}>
+          <FlatList
+            style={{ marginLeft: 15, marginRight: 15, marginTop: 5 }}
+            data={categories}
+            renderItem={this._renderItem}
+            keyExtractor={this._keyExtractor}
+            numColumns={3}
+          />
         </Box>
       </Box>
     );

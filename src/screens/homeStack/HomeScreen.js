@@ -43,7 +43,7 @@ export default class HomeScreen extends Component {
                 style={{ marginTop: 30 }}
                 source={require('../../../assets/img/main/star.png')}
               />
-              <Text style={{ marginTop: 8, fontSize: 12 }} bold center>
+              <Text style={{ marginTop: 10, fontSize: 14 }} bold center>
                 9 / 10
               </Text>
               <Box

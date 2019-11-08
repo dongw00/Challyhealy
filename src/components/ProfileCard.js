@@ -6,7 +6,6 @@ import { NavigationService } from '../api/NavigationService';
 
 export default class CategoryCard extends PureComponent {
   _handlePress = () => {
-    console.log(this.props.url);
     NavigationService.navigate(this.props.url == '' ? 'Home' : this.props.url);
   };
 

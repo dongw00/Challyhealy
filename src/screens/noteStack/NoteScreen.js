@@ -67,6 +67,7 @@ export default class NoteScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
+    headerRight: <InfoButton />,
   };
 
   _renderItem = ({ item, idx }) => {

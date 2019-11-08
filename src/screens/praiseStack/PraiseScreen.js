@@ -72,6 +72,7 @@ export default class PraiseScreen extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
+    headerRight: <InfoButton />,
   };
 
   _renderItem = ({ item, idx }) => {

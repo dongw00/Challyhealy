@@ -4,6 +4,19 @@ import { Box, Text } from 'react-native-design-utility';
 
 import { tabBarIcons } from '../../constants/images';
 
+function tabName(routeName) {
+  switch (routeName) {
+    case 'Home':
+      return '홈';
+    case 'Note':
+      return '노트';
+    case 'Praise':
+      return '칭찬';
+    case 'Disease':
+      return '질병';
+  }
+}
+
 export default class TabItem extends PureComponent {
   handlePress = () => {
     this.props.navigation.navigate(this.props.routeName);
@@ -11,19 +24,15 @@ export default class TabItem extends PureComponent {
 
   render() {
     const { routeName, isActive } = this.props;
-    const icon = tabBarIcons[isActive ? 'active' : 'inactive'][routeName];
+    const icon = tabBarIcons[routeName];
 
     return (
-      <Box f={1} pt={5} pb="md" center>
+      <Box f={1} center>
         <TouchableOpacity onPress={this.handlePress} style={styles.button}>
-          <Box mb={3}>
-            <Image style={{ width: 28, height: 28 }} source={icon} />
-          </Box>
-          <Box>
-            <Text size="sm" ls={0.12} color="greyDark" lowercase>
-              {routeName}
-            </Text>
-          </Box>
+          <Image style={{ height: 28, resizeMode: 'contain' }} source={icon} />
+          <Text style={{ marginTop: 8, fontSize: 15 }}>
+            {tabName(routeName)}
+          </Text>
         </TouchableOpacity>
       </Box>
     );

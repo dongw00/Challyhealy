@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator,
   createBottomTabNavigator,
 } from 'react-navigation';
 
@@ -16,16 +15,14 @@ import DiseaseScreen from './diseaseStack/DiseaseScreen';
 import WriteNote from './noteStack/WriteNote';
 import ProfileScreen from './homeStack/ProfileScreen';
 import CreditStore from './homeStack/CreditStore';
-
-const ProfileSwitch = createSwitchNavigator({
-  Profile: ProfileScreen,
-});
+import CouponScreen from './homeStack/CouponScreen';
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Profile: ProfileScreen,
     Credit: CreditStore,
+    Coupon: CouponScreen,
   },
   {
     mode: 'modal',
@@ -38,7 +35,9 @@ HomeStack.navigationOptions = ({ navigation }) => {
   let routeName = navigation.state.routes[navigation.state.index].routeName;
 
   tabBarVisible =
-    routeName == 'Profile' || routeName == 'Credit' ? false : true;
+    routeName == 'Profile' || routeName == 'Credit' || routeName == 'Coupon'
+      ? false
+      : true;
 
   return {
     tabBarVisible,

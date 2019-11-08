@@ -18,6 +18,7 @@ const categories = [
     id: 2,
     title: '쿠폰 박스',
     image: require('../../../assets/img/profile/info_icon2.png'),
+    url: 'Coupon',
   },
   {
     id: 3,
@@ -44,10 +45,7 @@ const categories = [
 
 export default class ProfileScreen extends Component {
   static navigationOptions = {
-    headerStyle: {
-      height: 60,
-      borderColor: 'white',
-    },
+    headerStyle: { borderBottomWidth: 0, height: 50 },
     headerLeft: null,
     headerRight: <CancleButton path={'Home'} />,
   };
@@ -64,9 +62,9 @@ export default class ProfileScreen extends Component {
 
   render() {
     return (
-      <Box f={1} style={{ marginTop: 15 }}>
+      <Box f={1}>
         <Box m={15}>
-          <Box style={{ marginLeft: 8 }}>
+          <Box style={{ marginLeft: 10 }}>
             <Text bold>
               김수진(Sunny)님,{' '}
               <Text size="sm" color="#56BBE3" bold>
@@ -85,19 +83,19 @@ export default class ProfileScreen extends Component {
                 요
               </Text>
             </Text>
-            <Text bold color="#858585" style={{ marginTop: 3, fontSize: 10 }}>
+            <Text bold color="#858585" style={{ fontSize: 10 }}>
               sunnymom@chalyhealy.com / 일반
             </Text>
           </Box>
           <Box
             center
             style={{
-              marginTop: 15,
+              marginTop: 10,
             }}>
             <Image
               style={{
                 width: WIDTH - 23,
-                height: 31,
+                resizeMode: 'contain',
               }}
               source={require('../../../assets/img/profile/rect1.png')}
             />
@@ -128,33 +126,37 @@ export default class ProfileScreen extends Component {
             </Box>
           </Box>
         </Box>
-        <Box center style={{ marginTop: 16 }}>
+        <Box center>
           <FlatList
-            style={{ margin: 5 }}
+            style={{ margin: 3 }}
             data={categories}
             renderItem={this._renderItem}
             keyExtractor={this._keyExtractor}
             numColumns={3}
           />
-          <Box center style={{ marginTop: 8 }}>
+          <Box center style={{ marginTop: 3 }}>
             <Image
-              style={{ width: WIDTH - 45, height: 40, borderRadius: 5 }}
+              style={{
+                width: WIDTH - 45,
+                resizeMode: 'contain',
+                borderRadius: 5,
+              }}
               source={require('../../../assets/img/profile/rect2.png')}
             />
             <Text bold style={{ fontSize: 12.5, position: 'absolute' }}>
               거점센터 카카오톡 플러스친구 상담
             </Text>
           </Box>
-          <Text bold style={{ fontSize: 8.5, marginTop: 0.8 }}>
+          <Text bold style={{ fontSize: 9 }}>
             지정 병원이 해당 보건 사업을 하는 "파트너" 병원인 경우 지원되는
             서비스입니다.
           </Text>
-          <Box center style={{ marginTop: 12 }}>
+          <Box center>
             <Image
               style={{
                 width: WIDTH - 45,
-                height: 40,
-                borderRadius: 5,
+                resizeMode: 'contain',
+                borderRadius: 3,
               }}
               source={require('../../../assets/img/profile/rect3.png')}
             />

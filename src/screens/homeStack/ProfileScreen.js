@@ -23,6 +23,7 @@ const categories = [
     id: 3,
     title: '크래딧 스토어',
     image: require('../../../assets/img/profile/info_icon3.png'),
+    url: 'Credit',
   },
   {
     id: 4,
@@ -54,7 +55,7 @@ export default class ProfileScreen extends Component {
   _renderItem = ({ item, idx }) => {
     return (
       <Box w={1 / 3} h={100}>
-        <ProfileCard title={item.title} image={item.image} />
+        <ProfileCard title={item.title} image={item.image} url={item.url} />
       </Box>
     );
   };
@@ -127,7 +128,7 @@ export default class ProfileScreen extends Component {
             </Box>
           </Box>
         </Box>
-        <Box center style={{ marginTop: 17 }}>
+        <Box center style={{ marginTop: 16 }}>
           <FlatList
             style={{ margin: 5 }}
             data={categories}

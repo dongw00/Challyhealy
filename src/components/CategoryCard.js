@@ -18,7 +18,7 @@ const icons = [
 
 export default class CategoryCard extends PureComponent {
   _handlePress = () => {
-    NavigationService.navigate('WriteNote', { name: this.props.title });
+    NavigationService.navigate('WriteNote');
   };
 
   render() {

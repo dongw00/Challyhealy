@@ -76,24 +76,29 @@ export default class Caroussel extends PureComponent {
           onScroll={this._onScroll}>
           {images.map((img, idx) => (
             <Box key={idx} position="relative" style={styles.boxContainer}>
-              <Image source={img} />
-              <Box
-                style={styles.boxContainer}
-                position="absolute"
-                dir="row"
-                align="end"
-                justify="center">
-                {Array.from({ length: images.length }).map((_, idx) => (
-                  <Image
-                    key={idx}
-                    source={this.state.currentIdx === idx ? cBox : eBox}
-                    style={{ width: 18, height: 18 }}
-                  />
-                ))}
-              </Box>
+              <Image
+                style={{ width: WIDTH, resizeMode: 'cover' }}
+                source={img}
+              />
             </Box>
           ))}
         </ScrollView>
+        <Box
+          style={{
+            width: WIDTH,
+            bottom: 8,
+          }}
+          position="absolute"
+          dir="row"
+          justify="center">
+          {Array.from({ length: images.length }).map((_, idx) => (
+            <Image
+              key={idx}
+              source={this.state.currentIdx === idx ? cBox : eBox}
+              style={{ width: 24, resizeMode: 'contain' }}
+            />
+          ))}
+        </Box>
       </Box>
     );
   }
@@ -102,6 +107,6 @@ export default class Caroussel extends PureComponent {
 const styles = StyleSheet.create({
   boxContainer: {
     width: WIDTH,
-    height: HEIGHT,
+    resizeMode: 'cover',
   },
 });

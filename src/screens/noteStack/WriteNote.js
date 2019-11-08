@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Image } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
-import CancleButton from '../../commons/button/CancleButton';
+import CancleButton2 from '../../commons/button/CancleButton2';
 
 export default class WriteNote extends Component {
   static navigationOptions = {
@@ -10,7 +10,7 @@ export default class WriteNote extends Component {
       backgroundColor: '#fff',
       height: 80,
     },
-    headerLeft: <CancleButton path={'Note'} />,
+    headerLeft: <CancleButton2 path={'Note'} />,
   };
 
   render() {

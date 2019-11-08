@@ -70,15 +70,8 @@ export default class NoteScreen extends Component {
   };
 
   _renderItem = ({ item, idx }) => {
-    let style = {};
-
-    if (idx % NUM_COLUMNS !== 0) {
-      style.borderLeftWidth = 2;
-      style.borderLeftColor = theme.color.greyLighter;
-    }
-
     return (
-      <Box w={1 / NUM_COLUMNS} h={120} style={style}>
+      <Box w={1 / NUM_COLUMNS} h={120}>
         <CategoryCard {...item} />
       </Box>
     );

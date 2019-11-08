@@ -15,6 +15,7 @@ import PraiseScreen from './praiseStack/PraiseScreen';
 import DiseaseScreen from './diseaseStack/DiseaseScreen';
 import WriteNote from './noteStack/WriteNote';
 import ProfileScreen from './homeStack/ProfileScreen';
+import CreditStore from './homeStack/CreditStore';
 
 const ProfileSwitch = createSwitchNavigator({
   Profile: ProfileScreen,
@@ -24,6 +25,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Profile: ProfileScreen,
+    Credit: CreditStore,
   },
   {
     mode: 'modal',
@@ -35,7 +37,8 @@ HomeStack.navigationOptions = ({ navigation }) => {
 
   let routeName = navigation.state.routes[navigation.state.index].routeName;
 
-  tabBarVisible = routeName == 'Profile' ? false : true;
+  tabBarVisible =
+    routeName == 'Profile' || routeName == 'Credit' ? false : true;
 
   return {
     tabBarVisible,
@@ -61,7 +64,6 @@ const TabNavigator = createBottomTabNavigator(
     Note: NoteStack,
     Praise: PraiseStack,
     Disease: DiseaseStack,
-    //Order: OrderScreen,
   },
   {
     tabBarComponent: props => <TabBar {...props} />,

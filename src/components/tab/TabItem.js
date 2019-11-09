@@ -9,11 +9,11 @@ function tabName(routeName) {
     case 'Home':
       return '홈';
     case 'Note':
-      return '노트';
+      return '기록';
     case 'Praise':
-      return '칭찬';
+      return '칭찬피트';
     case 'Disease':
-      return '질병';
+      return '질병정보';
   }
 }
 
@@ -29,8 +29,14 @@ export default class TabItem extends PureComponent {
     return (
       <Box f={1} center>
         <TouchableOpacity onPress={this.handlePress} style={styles.button}>
-          <Image style={{ height: 28, resizeMode: 'contain' }} source={icon} />
-          <Text style={{ marginTop: 8, fontSize: 15 }}>
+          <Image
+            style={{
+              height: 30,
+              resizeMode: 'contain',
+            }}
+            source={icon}
+          />
+          <Text style={{ marginTop: 5, fontSize: 14 }}>
             {tabName(routeName)}
           </Text>
         </TouchableOpacity>

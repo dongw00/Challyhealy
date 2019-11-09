@@ -85,22 +85,22 @@ export default class NoteScreen extends Component {
   render() {
     return (
       <Box f={1}>
-        <Box f={1.1} style={{ flexDirection: 'row' }}>
-          <Box f={1} style={{ margin: 40 }} center>
+        <Box dir="row" height={180}>
+          <Box f={2} m={15} center>
             <Image
-              style={{ width: 115, height: 115 }}
+              style={{ width: 130, resizeMode: 'contain' }}
               source={require('../../../assets/img/note/child_crown1.png')}
             />
           </Box>
-          <Box f={2} left style={{ justifyContent: 'center' }}>
+          <Box f={3} justify="center">
             <Image
-              style={{ marginBottom: 7 }}
+              style={{ marginBottom: 8 }}
               source={require('../../../assets/img/note/line1.png')}
             />
-            <Text bold style={{ marginBottom: 3 }}>
+            <Text bold mb={2}>
               최나은(Ann)
             </Text>
-            <Text size="sm" style={{ marginBottom: 20 }}>
+            <Text size="sm" mb={20}>
               여 / 17.07.16 (26개월)
             </Text>
             <Image
@@ -110,9 +110,9 @@ export default class NoteScreen extends Component {
             <Text size="sm">지정병원: 서울대병원</Text>
           </Box>
         </Box>
-        <Box f={3} style={{ backgroundColor: theme.color.greyLighter }}>
-          <ScrollView style={{ marginTop: 20 }}>
-            <Text center style={{ fontWeight: '600' }}>
+        <ScrollView>
+          <Box bg={theme.color.greyLighter}>
+            <Text center weight="600" mt={10}>
               2019년 11월 13일
             </Text>
             <FlatList
@@ -123,8 +123,8 @@ export default class NoteScreen extends Component {
               numColumns={NUM_COLUMNS}
               ItemSeparatorComponent={this._separator}
             />
-          </ScrollView>
-        </Box>
+          </Box>
+        </ScrollView>
       </Box>
     );
   }

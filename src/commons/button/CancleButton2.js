@@ -15,7 +15,7 @@ export default class CancleButton2 extends PureComponent {
     return (
       <HeaderButton left onPress={this.onNavigation}>
         <Image
-          style={{ width: 16, height: 16 }}
+          style={{ width: 18, resizeMode: 'contain' }}
           source={require('../../../assets/img/note/exit.png')}
         />
       </HeaderButton>

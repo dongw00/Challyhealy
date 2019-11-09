@@ -45,7 +45,7 @@ const categories = [
 
 export default class ProfileScreen extends Component {
   static navigationOptions = {
-    headerStyle: { borderBottomWidth: 0, height: 50 },
+    headerStyle: { borderBottomWidth: 0, height: 60 },
     headerLeft: null,
     headerRight: <CancleButton path={'Home'} />,
   };
@@ -63,7 +63,7 @@ export default class ProfileScreen extends Component {
   render() {
     return (
       <Box f={1}>
-        <Box m={15}>
+        <Box m={15} style={{ marginTop: 5 }}>
           <Box style={{ marginLeft: 10 }}>
             <Text bold>
               김수진(Sunny)님,{' '}

@@ -35,7 +35,10 @@ HomeStack.navigationOptions = ({ navigation }) => {
   let routeName = navigation.state.routes[navigation.state.index].routeName;
 
   tabBarVisible =
-    routeName == 'Profile' || routeName == 'Credit' || routeName == 'Coupon'
+    routeName == 'Profile' ||
+    routeName == 'Credit' ||
+    routeName == 'Coupon' ||
+    routeName == 'WriteNote'
       ? false
       : true;
 
@@ -48,6 +51,18 @@ const NoteStack = createStackNavigator({
   Note: NoteScreen,
   WriteNote: WriteNote,
 });
+
+NoteStack.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+
+  let routeName = navigation.state.routes[navigation.state.index].routeName;
+
+  tabBarVisible = routeName == 'WriteNote' ? false : true;
+
+  return {
+    tabBarVisible,
+  };
+};
 
 const DiseaseStack = createStackNavigator({
   Disease: DiseaseScreen,

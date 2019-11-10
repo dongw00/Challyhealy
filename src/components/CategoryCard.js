@@ -12,7 +12,7 @@ const icons = [
     img: require('../../assets/img/note/icon2.png'),
   },
   {
-    img: require('../../assets/img/note/exit.png'),
+    img: require('../../assets/img/note/plus.png'),
   },
 ];
 
@@ -30,7 +30,7 @@ export default class CategoryCard extends PureComponent {
         <Box center f={1} bg="white" style={{ borderRadius: 10 }}>
           <Box center mb="sm">
             <Image
-              style={{ width: 46, height: 46 }}
+              style={{ width: 42, height: 42 }}
               source={
                 id % 2 === 0 && id != 12
                   ? icons[0].img

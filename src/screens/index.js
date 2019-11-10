@@ -15,14 +15,20 @@ import DiseaseScreen from './diseaseStack/DiseaseScreen';
 import WriteNote from './noteStack/WriteNote';
 import ProfileScreen from './homeStack/ProfileScreen';
 import CreditStore from './homeStack/CreditStore';
+
+/* Coupon Stack */
 import CouponScreen from './homeStack/CouponScreen';
+import CouponDetail from './homeStack/CouponDetail';
+import CouponGift from './homeStack/CouponGift';
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Profile: ProfileScreen,
     Credit: CreditStore,
-    Coupon: CouponScreen,
+    CouponList: CouponScreen,
+    CouponDetail: CouponDetail,
+    CouponGift: CouponGift,
   },
   {
     mode: 'modal',
@@ -37,8 +43,10 @@ HomeStack.navigationOptions = ({ navigation }) => {
   tabBarVisible =
     routeName == 'Profile' ||
     routeName == 'Credit' ||
-    routeName == 'Coupon' ||
-    routeName == 'WriteNote'
+    routeName == 'WriteNote' ||
+    routeName == 'CouponList' ||
+    routeName == 'CouponDetail' ||
+    routeName == 'CouponGift'
       ? false
       : true;
 

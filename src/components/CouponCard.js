@@ -5,15 +5,21 @@ import { Box, Text } from 'react-native-design-utility';
 import { NavigationService } from '../api/NavigationService';
 
 export default class CouponCard extends PureComponent {
-  _handlePress = () => {
-    NavigationService.navigate('Store');
+  _handlePress = where => {
+    NavigationService.navigate(where, {
+      title: this.props.title,
+      subTitle: this.props.subTitle,
+      image: this.props.image,
+    });
   };
 
   render() {
     const { id, title, subTitle, image } = this.props;
     return (
-      <TouchableOpacity
-        onPress={this._handlePress}
+      <Box
+        f={1}
+        justify="center"
+        align="center"
         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Box center>
           <Image
@@ -49,25 +55,37 @@ export default class CouponCard extends PureComponent {
             <Text bold style={{ fontSize: 18.5, marginTop: 6 }}>
               {subTitle}
             </Text>
-            <Image
-              style={{
-                width: 155,
-                resizeMode: 'contain',
-              }}
-              source={image}
-            />
-            <Box
-              f={1}
-              dir="row"
-              align="center"
-              justify="center"
-              style={{ marginTop: -10 }}>
-              <Text>사용하기 | </Text>
-              <Text>선물하기</Text>
+            <TouchableOpacity onPress={() => this._handlePress('CouponDetail')}>
+              <Image
+                style={{
+                  width: 155,
+                  resizeMode: 'contain',
+                }}
+                source={image}
+              />
+            </TouchableOpacity>
+
+            <Box f={1} dir="row" align="center" justify="center" mt={-10}>
+              <TouchableOpacity
+                onPress={() => this._handlePress('CouponDetail')}>
+                <Text color="#7B7B7B" size="sm" bold>
+                  사용하기
+                </Text>
+              </TouchableOpacity>
+              <Text color="#7B7B7B" size="sm" bold>
+                {' '}
+                |{' '}
+              </Text>
+
+              <TouchableOpacity onPress={() => this._handlePress('CouponGift')}>
+                <Text color="#7B7B7B" size="sm" bold>
+                  선물하기
+                </Text>
+              </TouchableOpacity>
             </Box>
           </Box>
         </Box>
-      </TouchableOpacity>
+      </Box>
     );
   }
 }

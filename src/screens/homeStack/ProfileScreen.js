@@ -18,7 +18,7 @@ const categories = [
     id: 2,
     title: '쿠폰 박스',
     image: require('../../../assets/img/profile/info_icon2.png'),
-    url: 'Coupon',
+    url: 'CouponList',
   },
   {
     id: 3,

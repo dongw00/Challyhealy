@@ -65,6 +65,8 @@ const images = [
   },
 ];
 
+const NUM_COLUMS = 3;
+
 export default class PraiseScreen extends Component {
   static navigationOptions = {
     headerTitle: () => <LogoTitle />,
@@ -77,7 +79,7 @@ export default class PraiseScreen extends Component {
 
   _renderItem = ({ item, idx }) => {
     return (
-      <Box w={1 / 3} m={1}>
+      <Box w={1 / NUM_COLUMS - 3} m={1}>
         <PraiseCard {...item} />
       </Box>
     );
@@ -88,32 +90,29 @@ export default class PraiseScreen extends Component {
   render() {
     return (
       <ScrollView style={{ margin: 1 }}>
-        <Text
-          bold
-          size="sm"
-          style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
+        <Text bold size="sm" ml={20} mt={10} mb={10}>
           2019년 11월 13일(수)
         </Text>
-        <FlatList
-          data={images}
-          style={{ margin: 1 }}
-          renderItem={this._renderItem}
-          keyExtractor={this._keyExtractor}
-          numColumns={3}
-        />
-        <Text
-          bold
-          size="sm"
-          style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
+        <Box center ml={3} mr={3}>
+          <FlatList
+            data={images}
+            renderItem={this._renderItem}
+            keyExtractor={this._keyExtractor}
+            numColumns={3}
+          />
+        </Box>
+
+        <Text bold size="sm" ml={20} mt={10} mb={10}>
           2019년 11월 12일(화)
         </Text>
-        <FlatList
-          data={images}
-          style={{ margin: 1 }}
-          renderItem={this._renderItem}
-          keyExtractor={this._keyExtractor}
-          numColumns={3}
-        />
+        <Box center ml={3} mr={3}>
+          <FlatList
+            data={images}
+            renderItem={this._renderItem}
+            keyExtractor={this._keyExtractor}
+            numColumns={3}
+          />
+        </Box>
       </ScrollView>
     );
   }

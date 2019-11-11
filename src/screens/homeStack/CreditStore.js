@@ -4,7 +4,7 @@ import { Box, Text } from 'react-native-design-utility';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import CreditCard from '../../components/CreditCard';
-import CancleButtonW from '../../commons/button/CancleButtonW';
+import CancelButtonW from '../../commons/button/CancelButtonW';
 
 const { width: WIDTH } = Dimensions.get('window');
 import { theme } from '../../constants/theme';
@@ -55,7 +55,7 @@ export default class CreditStore extends Component {
     headerTransparent: true,
     headerStyle: { borderBottomWidth: 0, height: 65 },
     headerLeft: null,
-    headerRight: <CancleButtonW path="Profile" />,
+    headerRight: <CancelButtonW path="Profile" />,
   };
 
   _renderItem = ({ item, idx }) => {

@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import HeaderButton from './HeaderButton';
 import { NavigationService } from '../../api/NavigationService';
 
-export default class CancleButton2 extends PureComponent {
+export default class CancelButton2 extends PureComponent {
   constructor(props) {
     super(props);
   }

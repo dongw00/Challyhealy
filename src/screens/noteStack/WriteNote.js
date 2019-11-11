@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Image, Dimensions } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
-import CancleButton2 from '../../commons/button/CancleButton2';
+import CancelButton2 from '../../commons/button/CancelButton2';
 
 const { width: WIDTH } = Dimensions.get('window');
 
@@ -12,7 +12,7 @@ export default class WriteNote extends Component {
       backgroundColor: '#fff',
       height: 70,
     },
-    headerLeft: <CancleButton2 path={'Note'} />,
+    headerLeft: <CancelButton2 path={'Note'} />,
   };
 
   render() {

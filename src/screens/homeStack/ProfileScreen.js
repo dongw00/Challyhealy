@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Box, Text } from 'react-native-design-utility';
 import { TouchableOpacity, FlatList, Image, Dimensions } from 'react-native';
-import CancleButton from '../../commons/button/CancleButton';
+import CancelButton from '../../commons/button/CancelButton';
 import { NavigationService } from '../../api/NavigationService';
 
 import ProfileCard from '../../components/ProfileCard';
@@ -13,6 +13,7 @@ const categories = [
     id: 1,
     title: '기록 대상 관리',
     image: require('../../../assets/img/profile/info_icon1.png'),
+    url: 'Update',
   },
   {
     id: 2,
@@ -30,16 +31,19 @@ const categories = [
     id: 4,
     title: '내 정보 관리',
     image: require('../../../assets/img/profile/info_icon4.png'),
+    url: 'Update',
   },
   {
     id: 5,
     title: '공지사항',
     image: require('../../../assets/img/profile/info_icon5.png'),
+    url: 'Update',
   },
   {
     id: 6,
     title: '고객센터',
     image: require('../../../assets/img/profile/info_icon6.png'),
+    url: 'Update',
   },
 ];
 
@@ -47,7 +51,11 @@ export default class ProfileScreen extends Component {
   static navigationOptions = {
     headerStyle: { borderBottomWidth: 0, height: 60 },
     headerLeft: null,
-    headerRight: <CancleButton path={'Home'} />,
+    headerRight: <CancelButton path={'Home'} />,
+  };
+
+  _handlePress = () => {
+    NavigationService.navigate('Update');
   };
 
   _renderItem = ({ item, idx }) => {
@@ -101,16 +109,16 @@ export default class ProfileScreen extends Component {
             />
             <Box
               f={1}
+              dir="row"
+              w={WIDTH - 55}
+              h={32}
+              mt={18}
+              justify="between"
+              align="center"
               style={{
-                marginTop: 18,
-                width: WIDTH - 55,
-                height: 32,
                 position: 'absolute',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexDirection: 'row',
               }}>
-              <Box f={1} style={{ flexDirection: 'row' }}>
+              <Box f={1} dir="row" align="center">
                 <Text style={{ fontSize: 12 }} bold color="white">
                   내 크래딧{' '}
                 </Text>
@@ -118,10 +126,21 @@ export default class ProfileScreen extends Component {
                   10,890
                 </Text>
               </Box>
-              <Box f={1} style={{ alignItems: 'flex-end', marginRight: 5 }}>
+              <Box f={1} dir="row" justify="end" align="center">
+                <TouchableOpacity onPress={this._handlePress}>
+                  <Text bold color="white" style={{ fontSize: 12 }}>
+                    사용내역
+                  </Text>
+                </TouchableOpacity>
                 <Text bold color="white" style={{ fontSize: 12 }}>
-                  사용내역 | 충전내역
+                  {' '}
+                  |{' '}
                 </Text>
+                <TouchableOpacity onPress={this._handlePress}>
+                  <Text bold color="white" style={{ fontSize: 12 }}>
+                    충전내역
+                  </Text>
+                </TouchableOpacity>
               </Box>
             </Box>
           </Box>
@@ -134,7 +153,7 @@ export default class ProfileScreen extends Component {
             keyExtractor={this._keyExtractor}
             numColumns={3}
           />
-          <Box center style={{ marginTop: 3 }}>
+          <Box mt={3} center align="center">
             <Image
               style={{
                 width: WIDTH - 45,
@@ -151,7 +170,7 @@ export default class ProfileScreen extends Component {
             지정 병원이 해당 보건 사업을 하는 "파트너" 병원인 경우 지원되는
             서비스입니다.
           </Text>
-          <Box center>
+          <Box center align="center">
             <Image
               style={{
                 width: WIDTH - 45,
@@ -164,8 +183,8 @@ export default class ProfileScreen extends Component {
               bold
               color="#8B8B8B"
               style={{
-                fontSize: 12,
                 position: 'absolute',
+                fontSize: 12,
               }}>
               챌리힐리 가이드
             </Text>
@@ -181,10 +200,10 @@ export default class ProfileScreen extends Component {
           }}>
           <Image source={require('../../../assets/img/profile/ad.png')} />
           <Box center style={{ position: 'absolute' }}>
-            <Text bold color="white" style={{ fontSize: 20 }}>
+            <Text bold color="white" style={{ fontSize: 24 }}>
               디즈니 애니메이션 특별전
             </Text>
-            <Text color="white" style={{ marginTop: 4, fontSize: 11 }}>
+            <Text color="white" style={{ marginTop: 4, fontSize: 13 }}>
               기대평을 달아주시면 추첨을 통해 10분을 초대합니다. (각 2매)
             </Text>
           </Box>

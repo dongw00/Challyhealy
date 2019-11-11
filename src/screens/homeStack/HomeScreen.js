@@ -33,9 +33,18 @@ export default class HomeScreen extends Component {
               style={{ resizeMode: 'contain', width: 130 }}
               source={require('../../../assets/img/main/chaly_head.png')}
             />
-            <Text bold size="sm">
-              칭찬모드 ON
-            </Text>
+            <Box
+              center
+              w={95}
+              h={27}
+              bg="#B5B5B5"
+              align="center"
+              justify="center"
+              style={{ borderRadius: 30 }}>
+              <Text color="white" style={{ fontSize: 12.5 }}>
+                칭찬모드 ON
+              </Text>
+            </Box>
           </Box>
           <Box f={1}>
             <Box f={2} center>
@@ -47,11 +56,12 @@ export default class HomeScreen extends Component {
                 9 / 10
               </Text>
               <Box
+                mt={10}
+                w={150}
+                mb={10}
                 style={{
-                  marginTop: 10,
                   borderColor: '#F3F4F4',
                   borderWidth: 1,
-                  width: 150,
                 }}
               />
             </Box>

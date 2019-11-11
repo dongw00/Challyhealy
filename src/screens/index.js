@@ -16,10 +16,11 @@ import WriteNote from './noteStack/WriteNote';
 import ProfileScreen from './homeStack/ProfileScreen';
 import CreditStore from './homeStack/CreditStore';
 
-/* Coupon Stack */
 import CouponScreen from './homeStack/CouponScreen';
 import CouponDetail from './homeStack/CouponDetail';
 import CouponGift from './homeStack/CouponGift';
+
+import UpdateScreen from './common/UpdateScreen';
 
 const HomeStack = createStackNavigator(
   {
@@ -29,6 +30,7 @@ const HomeStack = createStackNavigator(
     CouponList: CouponScreen,
     CouponDetail: CouponDetail,
     CouponGift: CouponGift,
+    Update: UpdateScreen,
   },
   {
     mode: 'modal',
@@ -41,12 +43,13 @@ HomeStack.navigationOptions = ({ navigation }) => {
   let routeName = navigation.state.routes[navigation.state.index].routeName;
 
   tabBarVisible =
-    routeName == 'Profile' ||
-    routeName == 'Credit' ||
-    routeName == 'WriteNote' ||
-    routeName == 'CouponList' ||
-    routeName == 'CouponDetail' ||
-    routeName == 'CouponGift'
+    routeName === 'Profile' ||
+    routeName === 'Credit' ||
+    routeName === 'WriteNote' ||
+    routeName === 'CouponList' ||
+    routeName === 'CouponDetail' ||
+    routeName === 'CouponGift' ||
+    routeName === 'Update'
       ? false
       : true;
 

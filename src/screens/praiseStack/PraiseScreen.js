@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  FlatList,
-  ScrollView,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import { FlatList, ScrollView, Image, Dimensions } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
 import LogoTitle from '../../commons/LogoTitle';
@@ -117,13 +111,3 @@ export default class PraiseScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  item: {
-    flex: 1,
-    margin: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: Dimensions.get('window').width / 3,
-  },
-});

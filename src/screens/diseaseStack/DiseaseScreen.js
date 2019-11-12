@@ -19,30 +19,37 @@ export default class DiseaseScreen extends Component {
 
   render() {
     return (
-      <Box center style={{ marginTop: 10 }}>
-        <Image
-          style={{
-            width: 320,
-            height: 60,
-            shadowColor: theme.color.greyLighter,
-          }}
-          source={require('../../../assets/img/disease/rect1.png')}
-        />
+      <Box>
+        <Box center>
+          <Image
+            style={{
+              width: 360,
+              resizeMode: 'contain',
+              shadowColor: theme.color.greyLighter,
+            }}
+            source={require('../../../assets/img/disease/rect1.png')}
+          />
+          <Image
+            style={{
+              position: 'absolute',
+              right: 27,
+              width: 45,
+              resizeMode: 'contain',
+            }}
+            source={require('../../../assets/img/disease/find.png')}
+          />
+        </Box>
         <Text
+          color="#939393"
           bold
           style={{
-            fontSize: 13,
+            top: 25,
+            left: 60,
+            fontSize: 14,
             position: 'absolute',
-            top: 15,
-            left: 53,
-            color: '#939393',
           }}>
           검색어를 넣어주세요. (질병명, 증상 등)
         </Text>
-        <Image
-          style={{ position: 'absolute', right: 27, width: 45, height: 45 }}
-          source={require('../../../assets/img/disease/find.png')}
-        />
       </Box>
     );
   }

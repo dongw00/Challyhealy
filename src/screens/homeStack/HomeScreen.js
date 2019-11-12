@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Image, StyleSheet } from 'react-native';
+import { FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Box, Text } from 'react-native-design-utility';
 
 import Caroussel from '../../components/Caroussel';
@@ -7,6 +7,7 @@ import HomeLogo from '../../commons/HomeLogo';
 import InfoButton from '../../commons/button/InfoButton';
 
 import { theme } from '../../constants/theme';
+import { NavigationService } from '../../api/NavigationService';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -16,6 +17,10 @@ export default class HomeScreen extends Component {
       height: 110,
     },
     headerRight: <InfoButton />,
+  };
+
+  _handlePress = () => {
+    NavigationService.navigate('Praise');
   };
 
   render() {
@@ -48,22 +53,26 @@ export default class HomeScreen extends Component {
           </Box>
           <Box f={1}>
             <Box f={2} center>
-              <Image
-                style={{ marginTop: 30 }}
-                source={require('../../../assets/img/main/star.png')}
-              />
-              <Text style={{ marginTop: 10, fontSize: 14 }} bold center>
-                9 / 10
-              </Text>
-              <Box
-                mt={10}
-                w={150}
-                mb={10}
-                style={{
-                  borderColor: '#F3F4F4',
-                  borderWidth: 1,
-                }}
-              />
+              <TouchableOpacity onPress={this._handlePress}>
+                <Box center>
+                  <Image
+                    style={{ marginTop: 30 }}
+                    source={require('../../../assets/img/main/star.png')}
+                  />
+                  <Text style={{ marginTop: 10, fontSize: 14 }} bold center>
+                    9 / 10
+                  </Text>
+                  <Box
+                    mt={10}
+                    w={150}
+                    mb={10}
+                    style={{
+                      borderColor: '#F3F4F4',
+                      borderWidth: 1,
+                    }}
+                  />
+                </Box>
+              </TouchableOpacity>
             </Box>
             <Box f={1.5} center>
               <Text style={styles.rightFont}>

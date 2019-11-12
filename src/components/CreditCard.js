@@ -18,7 +18,7 @@ const icons = [
 
 export default class CreditCard extends PureComponent {
   _handlePress = () => {
-    NavigationService.navigate('Store');
+    NavigationService.navigate('StoreList');
   };
 
   render() {

@@ -14,11 +14,15 @@ import PraiseScreen from './praiseStack/PraiseScreen';
 import DiseaseScreen from './diseaseStack/DiseaseScreen';
 import WriteNote from './noteStack/WriteNote';
 import ProfileScreen from './homeStack/ProfileScreen';
-import CreditStore from './homeStack/CreditStore';
 
 import CouponScreen from './homeStack/CouponScreen';
 import CouponDetail from './homeStack/CouponDetail';
 import CouponGift from './homeStack/CouponGift';
+
+/* Credit Store */
+import CreditStore from './homeStack/CreditStore';
+import StoreList from './homeStack/StoreList';
+import LikeList from './homeStack/LikeList';
 
 import UpdateScreen from './common/UpdateScreen';
 
@@ -26,10 +30,15 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Profile: ProfileScreen,
-    Credit: CreditStore,
+
     CouponList: CouponScreen,
     CouponDetail: CouponDetail,
     CouponGift: CouponGift,
+    StoreList: StoreList,
+
+    LikeList: LikeList,
+    Credit: CreditStore,
+
     Update: UpdateScreen,
   },
   {
@@ -49,7 +58,9 @@ HomeStack.navigationOptions = ({ navigation }) => {
     routeName === 'CouponList' ||
     routeName === 'CouponDetail' ||
     routeName === 'CouponGift' ||
-    routeName === 'Update'
+    routeName === 'Update' ||
+    routeName === 'StoreList' ||
+    routeName === 'LikeList'
       ? false
       : true;
 
